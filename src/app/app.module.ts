@@ -4,11 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { WeatherCardComponent } from './weather-card/weather-card.component';
+import { KelvinToCelsiusPipe } from './kelvin-to-celsius.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WeatherCardComponent
+    WeatherCardComponent,
+    KelvinToCelsiusPipe
   ],
   imports: [
     BrowserModule,

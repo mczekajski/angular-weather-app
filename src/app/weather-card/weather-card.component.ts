@@ -11,6 +11,8 @@ export class WeatherCardComponent implements OnInit {
   city = '';
   iconUrl = '';
   weatherDescription = '';
+  temperature: number;
+  humidity: number;
 
   constructor(private weather: WeatherService) {}
 
@@ -21,6 +23,8 @@ export class WeatherCardComponent implements OnInit {
     this.weather.getWeatherData(this.city, this.key).subscribe((data) => {
       this.iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
       this.weatherDescription = data.weather[0].description;
+      this.temperature = data.main.temp - 273.15;
+      this.humidity = data.main.humidity;
     });
   }
 }
