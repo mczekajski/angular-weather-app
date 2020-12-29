@@ -1,1 +1,16 @@
-<p>weather-card works!</p>
+<form>
+  <input
+    placeholder="Enter API key"
+    class="input"
+    (input)="key = $event.target.value"
+  />
+  <input
+    placeholder="Enter City"
+    class="input"
+    (input)="city = $event.target.value"
+  />
+  <button (click)="getWeather($event)">Get Weather Data</button>
+</form>
+
+<img [src]="this.iconUrl" />
+<p>{{ weatherDescription }}</p>
