@@ -12,6 +12,9 @@
   <button (click)="getWeather($event)">Get Weather Data</button>
 </form>
 
-<img [src]="this.iconUrl" />
-<p>{{ weatherDescription }}</p>
-<p>{{ temperature }} &deg;C</p>
+<div class="card">
+  <img class="img-fluid" [src]="this.iconUrl" />
+  <p>{{ weatherDescription }}</p>
+  <p>{{ temperature | kelvinToCelsius }}</p>
+  <p>{{ humidity/100 | percent }}</p>
+</div>
