@@ -10,7 +10,7 @@ export class KelvinToCelsiusPipe implements PipeTransform {
       return '';
     }
     let celsius = Math.round(kelvin - 273.15);
-    return `${celsius} \u00B0C`;
+    return `${celsius}\u00B0C`;
   }
 
 }

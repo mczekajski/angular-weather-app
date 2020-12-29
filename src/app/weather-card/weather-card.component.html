@@ -1,20 +1,55 @@
-<form>
-  <input
-    placeholder="Enter API key"
-    class="input"
-    (input)="key = $event.target.value"
-  />
-  <input
-    placeholder="Enter City"
-    class="input"
-    (input)="city = $event.target.value"
-  />
-  <button (click)="getWeather($event)">Get Weather Data</button>
-</form>
+<div class="row align-items-center h-100">
+  <div class="col-6 mx-auto">
+    <div class="jumbotron">
 
-<div class="card">
-  <img class="img-fluid" [src]="this.iconUrl" />
-  <p>{{ weatherDescription }}</p>
-  <p>{{ temperature | kelvinToCelsius }}</p>
-  <p>{{ humidity/100 | percent }}</p>
+      <form>
+        <div class="form-group">
+          <label for="APIInput">Twój klucz API:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="APIInput"
+            placeholder="Klucz API"
+            (input)="key = $event.target.value"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="city">Podaj miasto:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="city"
+            placeholder="Miasto"
+            (input)="city = $event.target.value"
+            required
+          />
+        </div>
+
+        <div class="form-group text-center">
+          <button
+            type="button"
+            class="btn btn-secondary mt-4"
+            (click)="getWeather($event)"
+          >
+            Sprawdź pogodę
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+    <div *ngIf="weatherDescription.length" class="jumbotron">
+      <div>
+        <h1 class="display-5">{{ city }}</h1>
+        <img class="img-thumbnail" [src]="this.iconUrl" />
+        <p>{{ weatherDescription }}</p>
+        Temperatura:
+        <p>{{ temperature | kelvinToCelsius }}</p>
+        Wilgotność:
+        <p>{{ humidity / 100 | percent }}</p>
+      </div>
+    </div>
+  </div>
 </div>
