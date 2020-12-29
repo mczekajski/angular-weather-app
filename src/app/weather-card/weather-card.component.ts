@@ -12,7 +12,9 @@ export class WeatherCardComponent implements OnInit {
   iconUrl = '';
   weatherDescription = '';
   temperature: number;
+  feels_like: number;
   humidity: number;
+  pressure: number;
 
   constructor(private weather: WeatherService) {}
 
@@ -24,7 +26,9 @@ export class WeatherCardComponent implements OnInit {
       this.iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
       this.weatherDescription = data.weather[0].description;
       this.temperature = data.main.temp;
+      this.feels_like = data.main.feels_like;
       this.humidity = data.main.humidity;
+      this.pressure = data.main.pressure;
     });
   }
 }

@@ -1,7 +1,6 @@
 <div class="row align-items-center h-100">
-  <div class="col-6 mx-auto">
-    <div class="jumbotron">
-
+  <div class="col-12 mx-auto">
+    <div class="jumbotron mt-4">
       <form>
         <div class="form-group">
           <label for="APIInput">Twój klucz API:</label>
@@ -36,19 +35,31 @@
             Sprawdź pogodę
           </button>
         </div>
-
       </form>
     </div>
 
     <div *ngIf="weatherDescription.length" class="jumbotron">
       <div>
-        <h1 class="display-5">{{ city }}</h1>
-        <img class="img-thumbnail" [src]="this.iconUrl" />
+        <h1>{{ city }}</h1>
+        <div class="row align-items-center">
+          <img
+            class="img-thumbnail ml-2"
+            [alt]="weatherDescription"
+            [src]="iconUrl"
+          />
+          <h2 class="ml-3 display-4">{{ temperature | kelvinToCelsius }}</h2>
+        </div>
+
         <p>{{ weatherDescription }}</p>
-        Temperatura:
-        <p>{{ temperature | kelvinToCelsius }}</p>
+
+        <h6>Temperatura odczuwalna:</h6>
+        <p>{{ feels_like | kelvinToCelsius }}</p>
+
         Wilgotność:
         <p>{{ humidity / 100 | percent }}</p>
+
+        Ciśnienie:
+        <p>{{ pressure }} hPa</p>
       </div>
     </div>
   </div>
