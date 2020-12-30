@@ -19,9 +19,9 @@
       </form>
     </div>
 
-    <div *ngIf="city.length" class="jumbotron">
-      <div>
-        <h1>{{ city }}</h1>
+    <div [ngClass]="{'hidden': city.length === 0}" class="jumbotron">
+      <div class="weatherData">
+        <h1>{{ city }}&nbsp;</h1>
         <div class="row align-items-center">
           <img
             class="img-thumbnail ml-2"
@@ -36,10 +36,10 @@
         <h6>Temperatura odczuwalna:</h6>
         <p>{{ feels_like | kelvinToCelsius }}</p>
 
-        Wilgotność:
+        <h6>Wilgotność:</h6>
         <p>{{ humidity / 100 | percent }}</p>
 
-        Ciśnienie:
+        <h6>Ciśnienie:</h6>
         <p>{{ pressure }} hPa</p>
       </div>
     </div>

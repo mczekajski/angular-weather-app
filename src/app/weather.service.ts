@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+declare const latinise: any;
 
 interface WeatherResponse {
   results: {
@@ -30,7 +31,7 @@ export class WeatherService {
 
   public getWeatherData(city: string) {
     return this.http.get<WeatherResponse>(
-      `https://still-earth-15355.herokuapp.com/api/city?q=${city}`
+      `https://still-earth-15355.herokuapp.com/api/city?q=${latinise(city)}`
     );
   }
 }

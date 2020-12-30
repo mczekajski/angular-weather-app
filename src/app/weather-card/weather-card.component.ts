@@ -30,7 +30,7 @@ export class WeatherCardComponent implements OnInit {
     this.weather.getWeatherData(event.target.value).subscribe((data) => {
       if (data.results.cod === 200) {
         this.city = data.results.name;
-        this.iconUrl = `http://openweathermap.org/img/wn/${data.results.weather[0].icon}@2x.png`;
+        this.iconUrl = `https://openweathermap.org/img/wn/${data.results.weather[0].icon}@2x.png`;
         this.weatherDescription = data.results.weather[0].description;
         this.temperature = data.results.main.temp;
         this.feels_like = data.results.main.feels_like;
