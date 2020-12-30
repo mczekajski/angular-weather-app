@@ -20,7 +20,7 @@
     </div>
 
     <div [ngClass]="{'hidden': city.length === 0}" class="jumbotron mb-3">
-      <div class="weatherData">
+      <div>
         <h1>{{ city }}&nbsp;</h1>
         <div class="row align-items-center">
           <img
@@ -28,19 +28,19 @@
             [alt]="weatherDescription"
             [src]="iconUrl"
           />
-          <h2 class="ml-3 display-4">{{ temperature | kelvinToCelsius }}</h2>
+          <h2 class="ml-3 display-4 temp">{{ temperature | kelvinToCelsius }}&nbsp;</h2>
         </div>
 
-        <p>{{ weatherDescription }}</p>
+        <p>{{ weatherDescription }}&nbsp;</p>
 
-        <h6>Temperatura odczuwalna:</h6>
-        <p>{{ feels_like | kelvinToCelsius }}</p>
+        <h6>Temperatura odczuwalna:&nbsp;</h6>
+        <p>{{ feels_like | kelvinToCelsius }}&nbsp;</p>
 
-        <h6>Wilgotność:</h6>
-        <p>{{ humidity / 100 | percent }}</p>
+        <h6>Wilgotność:&nbsp;</h6>
+        <p>{{ humidity / 100 | percent }}&nbsp;</p>
 
-        <h6>Ciśnienie:</h6>
-        <p>{{ pressure }} hPa</p>
+        <h6>Ciśnienie:&nbsp;</h6>
+        <p>{{ pressure }} hPa&nbsp;</p>
       </div>
     </div>
   </div>
