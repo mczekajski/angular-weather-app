@@ -19,16 +19,26 @@ export class WeatherCardComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  handleKeyDown(event: any) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      this.getWeather(event);
+    }
+  }
+
   getWeather(event: any) {
-    event.preventDefault();
-    this.weather.getWeatherData(this.city).subscribe((data) => {
-      console.log(data);
-      this.iconUrl = `http://openweathermap.org/img/wn/${data.results.weather[0].icon}@2x.png`;
-      this.weatherDescription = data.results.weather[0].description;
-      this.temperature = data.results.main.temp;
-      this.feels_like = data.results.main.feels_like;
-      this.humidity = data.results.main.humidity;
-      this.pressure = data.results.main.pressure;
+    this.weather.getWeatherData(event.target.value).subscribe((data) => {
+      if (data.results.cod === 200) {
+        this.city = data.results.name;
+        this.iconUrl = `http://openweathermap.org/img/wn/${data.results.weather[0].icon}@2x.png`;
+        this.weatherDescription = data.results.weather[0].description;
+        this.temperature = data.results.main.temp;
+        this.feels_like = data.results.main.feels_like;
+        this.humidity = data.results.main.humidity;
+        this.pressure = data.results.main.pressure;
+      } else {
+        this.city = '';
+      }
     });
   }
 }

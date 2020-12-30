@@ -10,24 +10,16 @@
             class="form-control"
             id="city"
             placeholder="Miasto"
-            (input)="city = $event.target.value"
+            (change)="getWeather($event)"
+            (keydown)="handleKeyDown($event)"
             required
           />
         </div>
 
-        <div class="form-group text-center">
-          <button
-            type="button"
-            class="btn btn-secondary mt-4"
-            (click)="getWeather($event)"
-          >
-            Sprawdź pogodę
-          </button>
-        </div>
       </form>
     </div>
 
-    <div *ngIf="weatherDescription.length" class="jumbotron">
+    <div *ngIf="city.length" class="jumbotron">
       <div>
         <h1>{{ city }}</h1>
         <div class="row align-items-center">

@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 interface WeatherResponse {
   results: {
+    name: string;
+    cod: number;
     weather: [
       {
         id: number;
