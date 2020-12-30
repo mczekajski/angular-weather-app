@@ -29,6 +29,8 @@ export class WeatherCardComponent implements OnInit {
   getWeather(event: any) {
     this.weather.getWeatherData(event.target.value).subscribe((data) => {
       if (data.results.cod === 200) {
+        event.target.classList.remove("is-invalid");
+        event.target.classList.add("is-valid");
         this.city = data.results.name;
         this.iconUrl = `https://openweathermap.org/img/wn/${data.results.weather[0].icon}@2x.png`;
         this.weatherDescription = data.results.weather[0].description;
@@ -37,6 +39,8 @@ export class WeatherCardComponent implements OnInit {
         this.humidity = data.results.main.humidity;
         this.pressure = data.results.main.pressure;
       } else {
+        event.target.classList.remove("is-valid");
+        event.target.classList.add("is-invalid");
         this.city = '';
       }
     });
