@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class KelvinToCelsiusPipe implements PipeTransform {
 
-  transform(kelvin: number, ...args: unknown[]): any {
+  transform(kelvin: number, ...args: unknown[]): string {
     if (!kelvin) {
       return '';
     }
