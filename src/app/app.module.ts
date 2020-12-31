@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { WeatherCardComponent } from './weather-card/weather-card.component';
-import { KelvinToCelsiusPipe } from './kelvin-to-celsius.pipe';
+import { KelvinToCelsiusPipe } from './pipes/kelvin-to-celsius.pipe';
 
 @NgModule({
   declarations: [
