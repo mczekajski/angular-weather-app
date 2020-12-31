@@ -28,7 +28,12 @@ export class WeatherCardComponent implements OnInit {
 
   getWeather(event: any) {
     this.weather.getWeatherData(event.target.value).subscribe((data) => {
-      if (data.results.cod === 200) {
+      if (!event.target.value) {
+        event.target.classList.remove('is-invalid');
+        event.target.classList.remove('is-valid');
+        this.city = '';
+      }
+      else if (data.results.cod === 200) {
 
         // Set classes
         event.target.classList.remove('is-invalid');
