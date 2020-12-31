@@ -29,18 +29,35 @@ export class WeatherCardComponent implements OnInit {
   getWeather(event: any) {
     this.weather.getWeatherData(event.target.value).subscribe((data) => {
       if (data.results.cod === 200) {
-        event.target.classList.remove("is-invalid");
-        event.target.classList.add("is-valid");
-        this.city = data.results.name;
-        this.iconUrl = `https://openweathermap.org/img/wn/${data.results.weather[0].icon}@2x.png`;
-        this.weatherDescription = data.results.weather[0].description;
-        this.temperature = data.results.main.temp;
-        this.feels_like = data.results.main.feels_like;
-        this.humidity = data.results.main.humidity;
-        this.pressure = data.results.main.pressure;
+
+        // Set classes
+        event.target.classList.remove('is-invalid');
+        event.target.classList.add('is-valid');
+
+        // Destructure
+        const {
+          temp,
+          feels_like,
+          humidity,
+          pressure,
+        } = data.results.main;
+        const { icon, description } = data.results.weather[0];
+        const { name } = data.results;
+
+        // Assign
+        this.city = name;
+        this.iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+        this.weatherDescription = description;
+        this.temperature = temp;
+        this.feels_like = feels_like;
+        this.humidity = humidity;
+        this.pressure = pressure;
+
       } else {
-        event.target.classList.remove("is-valid");
-        event.target.classList.add("is-invalid");
+
+        // Error
+        event.target.classList.remove('is-valid');
+        event.target.classList.add('is-invalid');
         this.city = '';
       }
     });
