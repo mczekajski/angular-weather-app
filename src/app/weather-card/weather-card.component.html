@@ -4,12 +4,12 @@
       <form>
 
         <div class="form-group">
-          <label for="city">Podaj miasto:</label>
+          <label for="city">Sprawdź pogodę w mieście:</label>
           <input
             type="text"
             class="form-control"
             id="city"
-            placeholder="Miasto"
+            placeholder="np. Katowice"
             (change)="getWeather($event)"
             (keydown)="handleKeyDown($event)"
             required
