@@ -7,7 +7,7 @@ import { WeatherService } from '../services/weather.service';
   styleUrls: ['./weather-card.component.scss'],
 })
 export class WeatherCardComponent implements OnInit {
-  showPanel = true;
+  showPanel = false;
   city = '';
   iconUrl = '';
   weatherDescription = '';
