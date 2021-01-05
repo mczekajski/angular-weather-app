@@ -22,8 +22,13 @@
       </form>
     </div>
 
-    <div [ngClass]="{'hidden': city.length === 0}" class="jumbotron mb-3">
-      <div>
+    <div [ngClass]="{'invisible': !showPanel}" class="jumbotron mb-3 weather-card">
+      <div *ngIf="city.length === 0" class="loader">
+        <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        <h6>Pobieranie danych z serwera</h6>
+      </div>
+
+      <div *ngIf="city.length">
         <h1>{{ city }} &nbsp;</h1>
         <div class="row align-items-center">
           <img
